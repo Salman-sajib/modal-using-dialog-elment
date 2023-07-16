@@ -1,0 +1,91 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --main-color: hsl(240, 97%, 76%);
+  --black-color: hsl(0, 0%, 11%);
+  --green-color: hsl(145, 100%, 61%);
+}
+
+body {
+  background-color: var(--black-color);
+}
+
+.header {
+  font-size: 3rem;
+  text-transform: capitalize;
+  margin: 3rem 2rem 0rem;
+  color: var(--main-color);
+}
+
+button {
+  --border-radius: 0.5rem;
+  padding: 0.9rem 2.5rem;
+  border: none;
+  border-radius: var(--border-radius);
+  color: whitesmoke;
+  background-color: var(--main-color);
+  font-size: 1rem;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  transition: background-color 200ms linear, color 200ms linear;
+
+  position: relative;
+}
+
+button:hover {
+  background-color: hsl(240, 96%, 69%);
+  color: var(--green-color);
+}
+
+button::before {
+  content: "";
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+  top: 7px;
+  left: 7px;
+  border: 3px solid var(--main-color);
+  border-radius: var(--border-radius);
+  z-index: -1;
+  transition: all 200ms linear;
+}
+
+button:hover::before {
+  top: 0;
+  left: 0;
+}
+
+[data-open-button] {
+  margin: 5rem;
+}
+
+dialog {
+  z-index: 10;
+  border: 3px solid var(--green-color);
+  background-color: var(--black-color);
+  color: var(--green-color);
+  border-radius: 10px;
+  padding: 2rem;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+dialog::backdrop {
+  background-color: var(--black-color);
+}
+
+.modal div {
+  font-size: 2rem;
+  margin-block-end: 1rem;
+}
